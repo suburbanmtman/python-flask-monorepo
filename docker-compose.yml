@@ -1,0 +1,20 @@
+version: "3.7"
+services:
+  api-a:
+    build:
+      context: .
+      dockerfile: ./services/gvd-api-a/Dockerfile
+    volumes:
+      - './services/gvd-api-a/gvd_api_a:/usr/src/app/gvd_api_a'
+    ports:
+      - '5001:5000'
+    restart: always
+  api-b:
+    build:
+      context: .
+      dockerfile: ./services/gvd-api-b/Dockerfile
+    volumes:
+      - './services/gvd-api-b/gvd_api_b:/usr/src/app/gvd_api_b'
+    ports:
+      - '5002:5000'
+    restart: always
